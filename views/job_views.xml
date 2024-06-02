@@ -75,6 +75,17 @@
                 <field name="apply_date"/>
               </group>
             </group>
+            <notebook>
+              <page string="Assessment">
+                <field name="assissment_ids">
+                  <tree create="false" editable="bottom">
+                    <field name="name" />
+                    <field name="deadline" />
+                    <field name="is_done" />
+                  </tree>
+                </field>
+              </page>
+            </notebook>
           </sheet>
         </form>
       </field>

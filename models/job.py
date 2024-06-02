@@ -43,6 +43,8 @@ class job_hunt(models.Model):
         ('ghosted', 'Ghosted'),
     ], default='wishlisted')
 
+    assissment_ids = fields.One2many('job_hunt.assissment', 'job_id', string='Assissment')
+
 
     ### Actions ###
     def action_apply(self):
@@ -50,6 +52,14 @@ class job_hunt(models.Model):
 
     def register_assissment(self):
         self.state = 'assissment'
+        return  {
+            'type': 'ir.actions.act_window',
+            'name': 'Assissment',
+            'res_model': 'job_hunt.assissment',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_job_id': self.id}
+        }
 
     def register_interview(self):
         self.state = 'interview'
