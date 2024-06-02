@@ -44,7 +44,7 @@ class job_hunt(models.Model):
     ], default='wishlisted')
 
     assissment_ids = fields.One2many('job_hunt.assissment', 'job_id', string='Assissment')
-
+    assissment_count = fields.Integer(string='Assissment Count', compute='_compute_assissment_count')
 
     ### Actions ###
     def action_apply(self):
@@ -78,3 +78,18 @@ class job_hunt(models.Model):
 
     def action_ghost(self):
         self.state = 'ghosted'
+
+    ### views ###
+    def open_assissment(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Assissment',
+            'res_model': 'job_hunt.assissment',
+            'view_mode': 'list,form',
+            'domain': [('job_id', '=', self.id)],
+        }
+    
+    ### Compute ###
+    def _compute_assissment_count(self):
+        for rec in self:
+            rec.assissment_count = len(rec.assissment_ids)
