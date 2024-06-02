@@ -18,6 +18,7 @@
         'security/ir.model.access.csv',
 
         'views/job_views.xml',
+        'views/assissment_views.xml',
         'views/menu.xml',
 
     ],
