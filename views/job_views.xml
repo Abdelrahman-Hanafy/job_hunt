@@ -34,6 +34,27 @@
       <field name="arch" type="xml">
         <form>
           <header>
+            <button name="action_apply" string="Apply"  type="object" class="oe_highlight"
+                    invisible='state != "wishlisted"'/>
+            
+            <button name="register_assissment" string="Add Assessment"  type="object" class="oe_highlight"
+                    invisible='state not in ("applied", "assissment", "interview")'/>
+            <button name="register_interview" string="Add Interview"  type="object" class="oe_highlight"
+                    invisible='state not in ("applied", "assissment", "interview")'/>
+            
+            <button name="register_offer" string="Add Offer"  type="object" class="oe_highlight"
+                    invisible='state != "interview"'/>
+            <button name="action_rejecte" string="Rejected"  type="object" class="oe_highlight"
+                    invisible='state != "interview"'/>
+            
+            <button name="action_decline" string="Decline"  type="object" class="oe_highlight"
+                    invisible='state != "offer"'/>
+            <button name="action_hire" string="Accept"  type="object" class="oe_highlight"
+                    invisible='state != "offer"'/>
+            
+            <button name="action_ghost" string="Ghosted"  type="object" class="oe_highlight"
+                    invisible='state != "applied"'/>
+
             <field name="state" widget="statusbar"
                         statusbar_visible="wishlisted, applied, assissment, interview, offer" />
           </header>

@@ -42,3 +42,29 @@ class job_hunt(models.Model):
         ('declined', 'Declined'),
         ('ghosted', 'Ghosted'),
     ], default='wishlisted')
+
+
+    ### Actions ###
+    def action_apply(self):
+        self.state = 'applied'
+
+    def register_assissment(self):
+        self.state = 'assissment'
+
+    def register_interview(self):
+        self.state = 'interview'
+
+    def register_offer(self):
+        self.state = 'offer'
+
+    def action_decline(self):
+        self.state = 'declined'
+
+    def action_hire(self):
+        self.state = 'hired'
+
+    def action_rejecte(self):
+        self.state = 'rejected'
+
+    def action_ghost(self):
+        self.state = 'ghosted'
