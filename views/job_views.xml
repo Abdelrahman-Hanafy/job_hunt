@@ -18,13 +18,13 @@
 -->
 
     <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="job_hunt.action_window">
-      <field name="name">job_hunt window</field>
-      <field name="res_model">job_hunt.job_hunt</field>
+
+    <record model="ir.actions.act_window" id="job_hunt_job_action">
+      <field name="name">Job Action</field>
+      <field name="res_model">job_hunt.job</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+
 
   
 </odoo>
